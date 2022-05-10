@@ -1,6 +1,7 @@
 package com.phoenix.web.controller.system;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * @author phoenix
@@ -11,11 +12,11 @@ import org.springframework.stereotype.Controller;
 public class SysLoginController {
 
 
+    @GetMapping("/login")
+    public String login() {
 
-
-
-
-
+        return "login";
+    }
 
 
 }
