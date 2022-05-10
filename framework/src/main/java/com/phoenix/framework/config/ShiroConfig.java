@@ -1,5 +1,6 @@
 package com.phoenix.framework.config;
 
+import com.phoenix.framework.shiro.web.filter.captcha.CaptchaValidateFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,5 +18,27 @@ public class ShiroConfig {
     @Value("${shiro.session.expireTime}")
     private int expireTime;
 
+    /**
+     * 验证码类型
+     */
+    @Value("${shiro.user.captchaType}")
+    private String captchaType;
 
+    /**
+     * 验证码开关
+     */
+    @Value("${shiro.user.captchaEnabled}")
+    private boolean captchaEnabled;
+
+
+    /**
+     * 自定义验证码过滤器
+     */
+    public CaptchaValidateFilter captchaValidateFilter()
+    {
+        CaptchaValidateFilter captchaValidateFilter = new CaptchaValidateFilter();
+        captchaValidateFilter.setCaptchaEnabled(captchaEnabled);
+        captchaValidateFilter.setCaptchaType(captchaType);
+        return captchaValidateFilter;
+    }
 }
