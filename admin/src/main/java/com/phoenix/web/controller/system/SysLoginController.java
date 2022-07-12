@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SysLoginController {
 
-
     @GetMapping("/login")
     public String login() {
 
